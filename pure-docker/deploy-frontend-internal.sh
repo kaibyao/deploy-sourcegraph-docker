@@ -35,7 +35,7 @@ docker run --detach \
     -e INDEXED_SEARCH_SERVERS="$(addresses "zoekt-webserver-" $NUM_INDEXED_SEARCH ":6070")" \
     -e SRC_FRONTEND_INTERNAL=sourcegraph-frontend-internal:3090 \
     -e REPO_UPDATER_URL=http://repo-updater:3182 \
-    -e GRAFANA_SERVER_URL=http://grafana:3000 \
+    -e GRAFANA_SERVER_URL=http://grafana:3030 \
     -e GITHUB_BASE_URL=http://github-proxy:3180 \
     -e PROMETHEUS_URL=http://prometheus:9090 \
     -e PRECISE_CODE_INTEL_UPLOAD_BACKEND=blobstore \

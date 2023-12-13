@@ -7,7 +7,7 @@ set -e
 # Network: 100mbps
 # Liveness probe: n/a
 # Ports exposed to other Sourcegraph services: none
-# Ports exposed to the public internet: none (HTTP 3000 should be exposed to admins only)
+# Ports exposed to the public internet: none (HTTP 3030 should be exposed to admins only)
 #
 VOLUME="$HOME/sourcegraph-docker/grafana-disk"
 ./ensure-volume.sh $VOLUME 472
