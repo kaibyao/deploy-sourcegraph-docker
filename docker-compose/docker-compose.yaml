@@ -509,38 +509,38 @@ services:
       - sourcegraph
     restart: always
 
-  # Description: Publishes Prometheus metrics about Docker containers.
-  #
-  # Disk: none
-  # Ports exposed to other Sourcegraph services: 8080/TCP
-  # Ports exposed to the public internet: none
-  #
-  cadvisor:
-    container_name: cadvisor
-    image: 'index.docker.io/sourcegraph/cadvisor:5.2.4@sha256:a0c9eee7198441fafd6dd81b7f9d76dcda7115e839a410d1bd738e8d94cff7dd'
-    cpus: 1
-    mem_limit: '1g'
-    # You may set `privileged` to `false and `cadvisor` will run with reduced privileges.
-    # `cadvisor` requires root privileges in order to display provisioning metrics.
-    # These metrics provide critical information to help you scale the Sourcegraph deployment.
-    # If you would like to bring your own infrastructure monitoring & alerting solution,
-    # you may want to remove the `cadvisor` container completely
-    privileged: true
-    volumes:
-      - '/:/rootfs:ro'
-      - '/var/run:/var/run:ro'
-      - '/sys:/sys:ro'
-      - '/var/lib/docker/:/var/lib/docker:ro'
-      - '/dev/disk/:/dev/disk:ro'
-      # Uncomment to enable container monitoring on MacOS
-      # - '/var/run/docker.sock:/var/run/docker.sock:ro'
-    devices:
-      - '/dev/kmsg'
-    networks:
-      - sourcegraph
-    restart: always
-    command:
-      - --port=8080
+  # # Description: Publishes Prometheus metrics about Docker containers.
+  # #
+  # # Disk: none
+  # # Ports exposed to other Sourcegraph services: 8080/TCP
+  # # Ports exposed to the public internet: none
+  # #
+  # cadvisor:
+  #   container_name: cadvisor
+  #   image: 'index.docker.io/sourcegraph/cadvisor:5.2.4@sha256:a0c9eee7198441fafd6dd81b7f9d76dcda7115e839a410d1bd738e8d94cff7dd'
+  #   cpus: 1
+  #   mem_limit: '1g'
+  #   # You may set `privileged` to `false and `cadvisor` will run with reduced privileges.
+  #   # `cadvisor` requires root privileges in order to display provisioning metrics.
+  #   # These metrics provide critical information to help you scale the Sourcegraph deployment.
+  #   # If you would like to bring your own infrastructure monitoring & alerting solution,
+  #   # you may want to remove the `cadvisor` container completely
+  #   privileged: true
+  #   volumes:
+  #     - '/:/rootfs:ro'
+  #     - '/var/run:/var/run:ro'
+  #     - '/sys:/sys:ro'
+  #     - '/var/lib/docker/:/var/lib/docker:ro'
+  #     - '/dev/disk/:/dev/disk:ro'
+  #     # Uncomment to enable container monitoring on MacOS
+  #     # - '/var/run/docker.sock:/var/run/docker.sock:ro'
+  #   devices:
+  #     - '/dev/kmsg'
+  #   networks:
+  #     - sourcegraph
+  #   restart: always
+  #   command:
+  #     - --port=8080
 
   # Description: Publishes Prometheus metrics about the machine's hardware / operating system.
   #
